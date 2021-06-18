@@ -26,7 +26,7 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 
 # Precompile assets
 RUN rails assets:clobber
-RUN RAILS_ENV=production SECRET_KEY_BASE=abcd1234 rails assets:precompile --trace
+# RUN RAILS_ENV=production SECRET_KEY_BASE=abcd1234 rails assets:precompile --trace
 
 # Start the main process.
 CMD ["rails", "s", "-b", "0.0.0.0"]

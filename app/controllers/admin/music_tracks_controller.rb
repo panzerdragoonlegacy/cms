@@ -38,7 +38,7 @@ class Admin::MusicTracksController < ApplicationController
   def update
     params[:music_track][:contributor_profile_ids] ||= []
     make_current_user_a_contributor unless current_user.administrator?
-    if @music_track.update_attributes music_track_params
+    if @music_track.update music_track_params
       flash[:notice] = 'Successfully updated music track.'
       redirect_to_music_track
     else

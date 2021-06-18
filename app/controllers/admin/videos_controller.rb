@@ -38,7 +38,7 @@ class Admin::VideosController < ApplicationController
   def update
     params[:video][:contributor_profile_ids] ||= []
     make_current_user_a_contributor unless current_user.administrator?
-    if @video.update_attributes video_params
+    if @video.update video_params
       flash[:notice] = 'Successfully updated video.'
       redirect_to_video
     else

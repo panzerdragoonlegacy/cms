@@ -27,7 +27,7 @@ class Admin::CategoryGroupsController < ApplicationController
   end
 
   def update
-    if @category_group.update_attributes category_group_params
+    if @category_group.update category_group_params
       flash[:notice] = 'Successfully updated category group.'
       redirect_to_category_group
     else

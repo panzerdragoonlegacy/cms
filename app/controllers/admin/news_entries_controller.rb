@@ -28,7 +28,7 @@ class Admin::NewsEntriesController < ApplicationController
 
   def update
     params[:news_entry][:contributor_profile_ids] ||= []
-    if @news_entry.update_attributes news_entry_params
+    if @news_entry.update news_entry_params
       flash[:notice] = 'Successfully updated news entry.'
       redirect_to_news_entry
     else

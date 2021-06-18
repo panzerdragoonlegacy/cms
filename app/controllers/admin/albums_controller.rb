@@ -39,7 +39,7 @@ class Admin::AlbumsController < ApplicationController
     params[:album][:contributor_profile_ids] ||= []
     params[:album][:tag_ids] ||= []
     the_params = synchronised_params album_params
-    if @album.update_attributes the_params
+    if @album.update the_params
       flash[:notice] = 'Successfully updated album.'
       redirect_to_album
     else

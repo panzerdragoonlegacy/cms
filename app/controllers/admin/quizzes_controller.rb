@@ -29,7 +29,7 @@ class Admin::QuizzesController < ApplicationController
   def update
     params[:quiz][:contributor_profile_ids] ||= []
     make_current_user_a_contributor unless current_user.administrator?
-    if @quiz.update_attributes quiz_params
+    if @quiz.update quiz_params
       flash[:notice] = 'Successfully updated quiz.'
       redirect_to_quiz
     else

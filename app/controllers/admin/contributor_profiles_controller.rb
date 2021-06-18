@@ -26,7 +26,7 @@ class Admin::ContributorProfilesController < ApplicationController
   end
 
   def update
-    if @contributor_profile.update_attributes contributor_profile_params
+    if @contributor_profile.update contributor_profile_params
       flash[:notice] = 'Successfully updated contributor profile.'
       redirect_to_contributor_profile
     else

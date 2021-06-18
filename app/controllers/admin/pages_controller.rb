@@ -42,7 +42,7 @@ class Admin::PagesController < ApplicationController
   def update
     params[:page][:contributor_profile_ids] ||= []
     make_current_user_a_contributor unless current_user.administrator?
-    if @page.update_attributes page_params
+    if @page.update page_params
       flash[:notice] = 'Successfully updated page.'
       redirect_to_page
     else

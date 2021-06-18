@@ -26,7 +26,7 @@ class Admin::SagasController < ApplicationController
   end
 
   def update
-    if @saga.update_attributes saga_params
+    if @saga.update saga_params
       flash[:notice] = 'Successfully updated saga.'
       redirect_to_saga
     else

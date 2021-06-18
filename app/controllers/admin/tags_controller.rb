@@ -25,7 +25,7 @@ class Admin::TagsController < ApplicationController
   end
 
   def update
-    if @tag.update_attributes tag_params
+    if @tag.update tag_params
       flash[:notice] = 'Successfully updated tag.'
       redirect_to_tag
     else

@@ -25,7 +25,7 @@ class Admin::RedirectsController < ApplicationController
   end
 
   def update
-    if @redirect.update_attributes redirect_params
+    if @redirect.update redirect_params
       flash[:notice] = 'Successfully updated redirect.'
       redirect_to_redirect
     else

@@ -36,7 +36,7 @@ class Admin::DownloadsController < ApplicationController
   def update
     params[:download][:contributor_profile_ids] ||= []
     make_current_user_a_contributor unless current_user.administrator?
-    if @download.update_attributes download_params
+    if @download.update download_params
       flash[:notice] = 'Successfully updated download.'
       redirect_to_download
     else

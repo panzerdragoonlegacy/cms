@@ -39,7 +39,7 @@ class Admin::PicturesController < ApplicationController
   def update
     params[:picture][:contributor_profile_ids] ||= []
     make_current_user_a_contributor unless current_user.administrator?
-    if @picture.update_attributes picture_params
+    if @picture.update picture_params
       flash[:notice] = 'Successfully updated picture.'
       redirect_to_picture
     else

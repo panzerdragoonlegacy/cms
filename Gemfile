@@ -26,7 +26,7 @@ group :test do
 end
 
 gem 'bcrypt', '~> 3.1.15'
-gem 'bootsnap', '~> 1.4.8'
+gem 'bootsnap', '~> 1.7.5'
 gem 'bootstrap', '~> 4.5.2'
 gem 'cocoon', '~> 1.2.14'
 gem 'devise', '~> 4.7.2'
@@ -36,7 +36,12 @@ gem 'kaminari', '~> 1.2.1'
 gem 'kramdown', '~> 2.3.1'
 gem 'local_time', '~> 2.1.0'
 gem 'mini_magick', '~> 4.10.1'
-gem 'mini_racer', '~> 0.4.0'
+
+# Mini Racer currently causes a stack smashing detected error when running
+# rails assets:precompile within Dockerfile when the host machine is an M1 Mac.
+# https://github.com/rubyjs/mini_racer/issues/190
+# gem 'mini_racer', '~> 0.4.0'
+
 gem 'nokogiri', '1.11.4'
 gem 'onebox', '~> 2.0.2'
 gem 'kt-paperclip', '~> 7.0.0'
@@ -45,7 +50,7 @@ gem 'pg', '~> 1.2.3'
 gem 'pundit', '~> 2.1.0'
 gem 'puma', '< 6'
 gem 'rails_autolink', '~> 1.1.6'
-gem 'ransack', '~> 2.3.2'
+gem 'ransack', '~> 2.4.2'
 gem 'sanitize', '~> 5.2.1'
 gem 'sassc', '~> 2.4.0'
 gem 'sassc-rails', '~> 2.1.2'

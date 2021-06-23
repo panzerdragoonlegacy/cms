@@ -11,7 +11,8 @@ module LoadableForTag
   def load_news_entries
     @news_entries = NewsEntryPolicy::Scope.new(
       current_user,
-      NewsEntry.includes(:tags).where(tags: { name: @tag.name }).order(:name)
+      NewsEntry.includes(:tags).where(tags: { name: @tag.name })
+        .order('published_at desc').limit(50)
     ).resolve
   end
 
@@ -28,7 +29,7 @@ module LoadableForTag
     @pictures = PicturePolicy::Scope.new(
       current_user,
       Picture.includes(:tags)
-        .where(tags: { name: @tag.name }).order(:name)
+        .where(tags: { name: @tag.name }).order(:name).limit(50)
     ).resolve
   end
 

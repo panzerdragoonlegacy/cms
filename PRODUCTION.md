@@ -190,7 +190,7 @@ enabled (for Let's Encrypt).
 
    `sudo docker-compose -f docker-compose.prod.yml up --build`
 
-   If generating the SSL certicate, you should see a congratulations message and
+   If generating the SSL certificate, you should see a congratulations message and
    `certbot exited with code 0`. If certbot exits with a non-zero code, there's
    an error.
 
@@ -337,7 +337,7 @@ enabled (for Let's Encrypt).
 
    `0 12 * * * /var/cms/ssl_renew.sh >> /var/log/cron.log 2>&1`
 
-# Create a Backup to Your Local Machine
+## Create a Backup to Your Local Machine
 
 1. On the server, back up the database to your home directory:
 
@@ -381,6 +381,6 @@ enabled (for Let's Encrypt).
 
 9. On the server, delete the backup files:
 
-  `sudo rm ~/backup.sql`
+   `sudo rm ~/backup.sql`
 
-  `sudo rm -rf ~/system`
+   `sudo rm -rf ~/system`

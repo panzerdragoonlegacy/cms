@@ -357,7 +357,7 @@ enabled (for Let's Encrypt).
 
    `cd ~/backups/cms-backup`
 
-   `git@github.com:panzerdragoonlegacy/cms.git`
+   `git clone git@github.com:panzerdragoonlegacy/cms.git`
 
 5. Download the database backup from the server:
 

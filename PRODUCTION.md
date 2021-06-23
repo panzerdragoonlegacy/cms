@@ -336,3 +336,51 @@ enabled (for Let's Encrypt).
    `sudo crontab -e`
 
    `0 12 * * * /var/cms/ssl_renew.sh >> /var/log/cron.log 2>&1`
+
+# Create a Backup to Your Local Machine
+
+1. On the server, back up the database to your home directory:
+
+   `sudo docker exec -t database pg_dumpall -c -U postgres > ~/backup.sql`
+
+2. Back up the Paperclip attachments to your home directory:
+
+   `sudo docker cp app:/cms/public/system ~/system`
+
+3. On your local machine, make a folder for the various parts of the backup:
+
+   `mkdir ~/backups/cms-backup`
+
+4. Clone the current version of the code repository into the local backup
+   directory. This ensures that data can be restored to the same point in time
+   as the code, if required:
+
+   `cd ~/backups/cms-backup`
+
+   `git@github.com:panzerdragoonlegacy/cms.git`
+
+5. Download the database backup from the server:
+
+   `scp kyle@servername:~/backup.sql ~/backups/cms-backup`
+
+6. Download the Paperclip attachments from the server. This will take a while,
+   so if there is enough free space on the server you may want to create a
+   tarball of the folder first:
+
+   `scp -r kyle@servername:~/system ~/backups/cms-backup/system`
+
+7. Create a tarball of the folder containing the three parts of the backup:
+
+   `cd ~/backups`
+
+   `tar cvzf ~/backups/cms-backup.tar.gz cms-backup`
+
+8. Rename the tarball to the date of the backup and archive it:
+
+   `mv cms-backup.tar.gz cms-backup-2021-06-23.tar.gz`
+
+9. On the server, delete the backup files:
+
+  `sudo rm ~/backup.sql`
+
+  `sudo rm -rf ~/system`

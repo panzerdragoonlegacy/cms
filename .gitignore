@@ -27,5 +27,10 @@
 # Ignore the Let's Encrypt certbot directory.
 /certbot
 
-# Ignore Node packages.
+# Added by Webpacker.
+/public/packs
+/public/packs-test
 /node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

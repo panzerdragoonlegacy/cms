@@ -19,6 +19,10 @@ RUN bundle install
 
 COPY . /cms
 
+# Run yarn install at this point to enable webpack-dev-server command.
+RUN yarn cache clean
+RUN yarn install
+
 # Execute entrypoint script every time the container starts.
 COPY docker-entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/docker-entrypoint.sh

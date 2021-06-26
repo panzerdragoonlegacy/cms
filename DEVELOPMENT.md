@@ -57,6 +57,12 @@ Step-by-step instructions for setting up a development environment for the site.
    Run `docker-machine ls`. If the displayed URL is `tcp://192.168.99.100:2376`
    you would access the site at `http://192.168.99.100:3000` instead.
 
+10. For automatic reloading of webpack-dev-server, open a seperate tab and run:
+
+   `docker-compose exec app bash`
+
+   `WEBPACKER_DEV_SERVER_HOST=0.0.0.0 ./bin/webpack-dev-server`
+
 ## Restore a Database Backup into Docker Volume
 
 1. Stop the app and start the database container only.

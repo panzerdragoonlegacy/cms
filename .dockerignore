@@ -19,3 +19,9 @@ tmp/*
 
 # Paperclip attachments
 public/system/*
+
+# Copying these files sometimes causes issues when building Docker container.
+# We *do* want to include the public/assets folder since this should contain
+# production assets.
+node_modules
+public/packs

@@ -27,6 +27,10 @@ Rails.application.routes.draw do
     resources :quizzes
   end
 
+  namespace :redesign do
+    get '/', to: 'home#index'
+  end
+
   resources :searches
   resources :news_entries, path: 'news'
   get 'site-map', to: 'site_map#show', as: :site_map

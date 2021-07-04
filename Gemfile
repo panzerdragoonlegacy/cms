@@ -20,7 +20,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'pundit-matchers', '~> 1.6.0'
+  gem 'pundit-matchers', '~> 1.7.0'
   gem 'rspec_junit_formatter' # Used for formatting CircleCI output
   gem 'shoulda-matchers', '~> 4.4.1'
 end
